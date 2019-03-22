@@ -1,0 +1,17 @@
+[
+  {
+    "from": "Derek",
+    "message": "Hey, bro!",
+    "read": false
+  },
+  {
+    "from": "Derek",
+    "message": "What's up?",
+    "read": false
+  },
+  {
+    "from": "Mary",
+    "message": "Hi! Long time, no see!",
+    "read": false
+  }
+]

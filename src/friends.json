@@ -1,0 +1,22 @@
+[
+  {
+    "avatar": "/img/45.jpg",
+    "name": "Jack",
+    "online": false
+  },
+  {
+    "avatar": "/img/71.jpg",
+    "name": "Lana",
+    "online": false
+  },
+  {
+    "avatar": "/img/57.jpg",
+    "name": "Mary",
+    "online": true
+  },
+  {
+    "avatar": "/img/22.jpg",
+    "name": "Derek",
+    "online": true
+  }
+]
