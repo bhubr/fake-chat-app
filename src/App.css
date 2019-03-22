@@ -69,6 +69,10 @@ aside {
 .Title {
   flex-grow: 1;
 }
+.icon-bubble2 {
+  font-size: 2rem;
+  margin-right: 3px;
+}
 .Notif {
   background: #b33;
   color: #fff;
@@ -78,7 +82,7 @@ aside {
   text-align: center;
   font-weight: bold;
 }
-.Messages-wrapper {
+.Chat-wrapper {
   position: absolute;
   bottom: 0;
   right: 20px;
@@ -89,23 +93,37 @@ aside {
   width: 60%;
   display: none;
 }
-.Messages-wrapper.expand {
+.Chat-wrapper.expand {
   display: block;
 }
-.Messages-collapse {
+.Chat-collapse {
   height: 0;
 }
-.Messages-collapse {
+.Chat-collapse {
   height: auto;
 }
 .Messages-inner {
   padding: 20px 4%;
 }
-.Messages-wrapper .Friend-name {
+.Chat-wrapper .Chat-header {
   background: #eee;
   margin: 0;
   font-size: 1.3rem;
-  padding: 5px 20px;
+  padding: 5px 4%;
+  display: flex;
+  align-items: center;
+}
+.Chat-wrapper .Chat-header .friend-name {
+  flex-grow: 1;
+}
+.Chat-wrapper .Chat-header .close {
+  font-size: 1.1rem;
+  vertical-align: baseline;
+  color: #444;
+  transition: 0.2s color;
+}
+.Chat-wrapper .Chat-header .close:hover {
+  color: #777;
 }
 .Message {
   background: #ccc;

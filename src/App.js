@@ -7,11 +7,9 @@ import './App.css';
 
 class App extends Component {
   state = {
-    showMsg: false,
-    name: '',
+    chatWith: '',
     messages,
-    friends,
-    filtered: []
+    friends
   }
 
   componentDidMount() {
@@ -23,31 +21,38 @@ class App extends Component {
     }), 3000);
   }
 
-  showMessages = name => {
+  openChat = name => {
     const messages = this.state.messages
       .map(msg => (!msg.read && msg.from === name) ? { ...msg, read: true } : msg);
-    const filtered = messages.filter(msg => msg.from === name);
     this.setState({
-      showMsg: true,
-      name,
-      messages,
-      filtered
+      chatWith: name,
+      messages
     });
   }
+
+  closeChat = () => {
+    this.setState({ chatWith: '' });
+  }
+
   render() {
-    const { showMsg, messages, friends, filtered, name } = this.state;
+    const { chatWith, messages, friends } = this.state;
     const notread = messages.filter(m => !m.read);
+    const filtered = messages.filter(msg => msg.from === chatWith);
     return (
       <div className="App">
         <nav>
           <span className="Title">WildBook</span>
+          <span className="icon-bubble2" />
           <span className="Notif">{notread.length}</span>
         </nav>
         <div className="Wrapper">
           <main>
-            <div className={`Messages-wrapper ${showMsg ? 'expand': ''}`}>
-              <div className="Messages-collapse">
-                <div className="Friend-name">{name}</div>
+            <div className={`Chat-wrapper ${chatWith ? 'expand': ''}`}>
+              <div className="Chat-collapse">
+                <div className="Chat-header">
+                  <span className="friend-name">{chatWith}</span>
+                  <span className="close icon-cross" onClick={this.closeChat} />
+                </div>
                 <div className="Messages-inner">
                   {
                     filtered.map(m => (
@@ -65,7 +70,7 @@ class App extends Component {
                 <Friend
                   key={f.name}
                   {...f}
-                  onClick={() => this.showMessages(f.name)}
+                  onClick={() => this.openChat(f.name)}
                 />
               ))
             }
